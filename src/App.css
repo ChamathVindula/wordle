@@ -1,38 +1,99 @@
-.App {
-  text-align: center;
+.app {
+  background-color: #180161;
+  display: grid;
+  grid-template-columns: 1fr 80% 1fr;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.padder {
+  background-color: inherit;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#game-canvas {
+  align-items: center;
+  background-color: inherit;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  overflow-x: auto;
 }
 
-.App-link {
-  color: #61dafb;
+#letter-grid {
+  background-color: #4F1787;
+  border: 2px solid #EB3678;
+  border-radius: 25px;
+  max-width: 470px;
+  min-width: 350px;
+  width: 70%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.word-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 1rem 0;
+  width: 100%;
+}
+
+.char-wrapper {
+  height: 70px;
+  width: 70px;
+}
+
+.char-wrapper > input {
+  background-color: #505050;
+  border: 0;
+  border-radius: 7px;
+  color: #FB773C;
+  font-size: 2rem;
+  font-weight: 900;
+  height: 100%;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+  text-transform: uppercase;
+}
+
+.char-wrapper > input.yellow {
+  background-color: #ffe659;
+  color: #FFFFFF;
+}
+
+.char-wrapper > input.green {
+  background-color: #8aff8a;
+  color: #FFFFFF;
+}
+
+.char-wrapper > input:disabled {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+button[type="submit"] {
+  background-color: #FB773C;
+  border: none;
+  border-radius: 7px;
+  color: #4F1787;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: bolder;
+  margin: 1rem;
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 850px) {
+  .app {
+    grid-template-columns: 100%;
   }
-  to {
-    transform: rotate(360deg);
+
+  .padder {
+    display: none;
+  }
+
+  #letter-grid {
+    width: 90%;
   }
 }
