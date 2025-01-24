@@ -3,8 +3,7 @@ import GameContext from "./store/game-context";
 
 export default function WordInput({ wordIndex, shouldReset }) {
     let { currentWordIndex, colorMaps, checkValidity } = useContext(GameContext);
-    console.log('word number ' + wordIndex + ' was refreshed for \n' + currentWordIndex + ' \n' + colorMaps + ' \n' + checkValidity);
-    
+    console.log('word number: ', wordIndex);    
     let [word, setWord] = useState([]);
 
     let inputs = useRef([]);

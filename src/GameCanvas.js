@@ -131,7 +131,6 @@ export default function GameCanvas() {
     }, [targetWord, userGuessWord, currentWordIndex, updateScore]);
 
     let gameContextValue = {
-        targetWord,
         currentWordIndex,
         colorMaps,
         checkValidity
