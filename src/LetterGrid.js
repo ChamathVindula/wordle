@@ -1,21 +1,19 @@
-import { useContext } from "react";
 import WordInput from "./WordInput";
-import GameContext from "./store/game-context";
 
-export default function LetterGrid() {
-    let { numberOfAttempts } = useContext(GameContext);
-
-    let wordInputs = [];
-
-    for(let i = 0; i < numberOfAttempts; i++) {
-        wordInputs.push(
-            <WordInput wordIndex={i} key={`word-input${i}`} />
-        );
-    }
+export default function LetterGrid({ shouldReset }) {
+    let numberOfAttempts = 6;
 
     return (
         <div id="letter-grid">
-            {wordInputs}
+            {
+                Array.from({ length: numberOfAttempts }).map((_, index) => {
+                    return <WordInput 
+                        wordIndex={index} 
+                        key={`word-input${index}`} 
+                        shouldReset={shouldReset} 
+                    />;
+                })
+            }
         </div>
     );
 }
