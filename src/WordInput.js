@@ -3,12 +3,11 @@ import GameContext from "./store/game-context";
 
 export default function WordInput({ wordIndex, shouldReset }) {
     let { currentWordIndex, colorMaps, checkValidity } = useContext(GameContext);
-    console.log('word number: ', wordIndex);    
     let [word, setWord] = useState([]);
-
     let inputs = useRef([]);
 
     let handleInputChange = function(index, value) {
+        // Update the word state
         setWord(prevWord => {
             let newWord = [...prevWord];
             
@@ -17,6 +16,7 @@ export default function WordInput({ wordIndex, shouldReset }) {
             return newWord;
         });
 
+        // Switch focus to the next text box if available 
         if(value !== '' && index < 4) {
             inputs.current[index+1].focus();
         }
@@ -41,7 +41,7 @@ export default function WordInput({ wordIndex, shouldReset }) {
                             <input
                                 className={colorMaps[wordIndex] !== undefined ? colorMaps[wordIndex][i] : ''} 
                                 disabled={!InputCurrentlyInUse}
-                                key={`word-${wordIndex}-char-input-${i}`}
+                                
                                 maxLength={1}
                                 onChange={(e) => handleInputChange(i, e.target.value)} 
                                 ref={(el) => { inputs.current[i] = el }}

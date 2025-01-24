@@ -9,7 +9,7 @@ export default function LetterGrid({ shouldReset }) {
                 Array.from({ length: numberOfAttempts }).map((_, index) => {
                     return <WordInput 
                         wordIndex={index} 
-                        key={`word-input${index}`} 
+                        key={`word-input-${index}`} 
                         shouldReset={shouldReset} 
                     />;
                 })
