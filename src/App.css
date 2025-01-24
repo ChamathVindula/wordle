@@ -28,16 +28,15 @@
 }
 
 .word-input {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin: 1rem 0;
-  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin: 1rem;
 }
 
 .char-wrapper {
   height: 70px;
-  width: 70px;
+  width: 100%;
 }
 
 .char-wrapper > input {
